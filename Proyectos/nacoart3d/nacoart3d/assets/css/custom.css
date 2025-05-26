@@ -1,0 +1,13 @@
+/*
+Custom Css
+*/
+.custom-green-btn {
+  background-color: #198754; /* Verde */
+  border-color: #198754; /* Borde verde */
+  color: white; /* Texto blanco */
+}
+
+.custom-green-btn:hover {
+  background-color: #16653b; /* Verde más oscuro al pasar el ratón */
+  border-color: #16653b; /* Borde verde más oscuro al pasar el ratón */
+}

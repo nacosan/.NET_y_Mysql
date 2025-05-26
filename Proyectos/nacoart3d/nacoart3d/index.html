@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>NacoArt3D - Impresión 3D de Calidad</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/img/favicon.ico"
+    />
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/templatemo.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
+    <!-- Carga de fuentes después de los estilos -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  </head>
+
+  <body>
+    <script>
+      const subcategorias = {
+        llaveros: ["Coches", "Videojuegos", "NFC"],
+        figuras: ["Videojuegos", "Coches", "Anime"],
+        utilidades: ["Tazas", "Maceteros", "Cuelga Llaves"],
+        otro: ["Diseña tu pieza", "Zona verde"],
+      };
+
+      function actualizarSubcategoria() {
+        const categoriaSelect = document.getElementById("categoria");
+        const subcategoriaSelect = document.getElementById("subcategoria");
+        const categoriaSeleccionada = categoriaSelect.value;
+
+        subcategoriaSelect.innerHTML =
+          '<option value="">Seleccione...</option>';
+
+        if (categoriaSeleccionada && subcategorias[categoriaSeleccionada]) {
+          subcategoriaSelect.disabled = false;
+          subcategorias[categoriaSeleccionada].forEach((opcion) => {
+            const nuevaOpcion = document.createElement("option");
+            nuevaOpcion.value = opcion.toLowerCase().replace(/\s+/g, "_");
+            nuevaOpcion.textContent = opcion;
+            subcategoriaSelect.appendChild(nuevaOpcion);
+          });
+        } else {
+          subcategoriaSelect.disabled = true;
+        }
+      }
+
+      // Asegurarse de que la función se ejecute cuando la página cargue
+      document.addEventListener("DOMContentLoaded", () => {
+        const categoriaSelect = document.getElementById("categoria");
+        categoriaSelect.addEventListener("change", actualizarSubcategoria);
+        actualizarSubcategoria(); // Ejecutar una vez al cargar para configurar el estado inicial
+      });
+    </script>
+
+    <!-- Barra de navegación superior -->
+    <nav
+      class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block"
+      id="templatemo_nav_top"
+    >
+      <div class="container text-light">
+        <div class="w-100 d-flex justify-content-between">
+          <div>
+            <i class="fa fa-envelope mx-2"></i>
+            <a
+              class="navbar-sm-brand text-light text-decoration-none"
+              href="mailto:info@nacoart3d.com"
+              >info@nacoart3d.com</a
+            >
+          </div>
+          <div>
+            <a
+              class="text-light"
+              href="https://www.instagram.com/nacoart3d/"
+              target="_blank"
+              ><i class="fab fa-instagram fa-sm fa-fw me-2"></i
+            ></a>
+            <!-- Puedes añadir aquí enlaces a otras redes sociales si las tienes -->
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Cierre de la barra de navegación superior -->
+
+    <!-- Cabecera -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a
+          class="navbar-brand text-success logo h1 align-self-center"
+          href="index.html"
+        >
+          NacoArt3D
+        </a>
+
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#templatemo_main_nav"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
+          id="templatemo_main_nav"
+        >
+          <div class="flex-fill">
+            <ul
+              class="nav navbar-nav d-flex justify-content-between mx-lg-auto"
+            >
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">Acerca de</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop.html">Tienda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contacto</a>
+              </li>
+            </ul>
+          </div>
+          <div class="navbar align-self-center d-flex">
+            <div
+              class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3"
+            >
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputMobileSearch"
+                  placeholder="Buscar ..."
+                />
+                <div class="input-group-text">
+                  <i class="fa fa-fw fa-search"></i>
+                </div>
+              </div>
+            </div>
+            <a
+              class="nav-icon d-none d-lg-inline"
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#templatemo_search"
+            >
+              <i class="fa fa-fw fa-search text-dark mr-2"></i>
+            </a>
+            <a class="nav-icon position-relative text-decoration-none" href="#">
+              <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+              <span
+                class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
+                >7</span
+              >
+            </a>
+            <a class="nav-icon position-relative text-decoration-none" href="#">
+              <i class="fa fa-fw fa-user text-dark mr-3"></i>
+              <span
+                class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
+                >+99</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Cierre de cabecera -->
+
+    <!-- Modal de búsqueda -->
+    <div
+      class="modal fade bg-white"
+      id="templatemo_search"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="w-100 pt-1 mb-5 text-right">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form
+          action=""
+          method="get"
+          class="modal-content modal-body border-0 p-0"
+        >
+          <div class="input-group mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="inputModalSearch"
+              name="q"
+              placeholder="Buscar ..."
+            />
+            <button
+              type="submit"
+              class="input-group-text bg-success text-light"
+            >
+              <i class="fa fa-fw fa-search text-white"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Cierre del modal de búsqueda -->
+
+    <!-- Banner principal -->
+    <div
+      id="template-mo-zay-hero-carousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <ol class="carousel-indicators">
+        <li
+          data-bs-target="#template-mo-zay-hero-carousel"
+          data-bs-slide-to="0"
+          class="active"
+        ></li>
+        <li
+          data-bs-target="#template-mo-zay-hero-carousel"
+          data-bs-slide-to="1"
+        ></li>
+        <li
+          data-bs-target="#template-mo-zay-hero-carousel"
+          data-bs-slide-to="2"
+        ></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container">
+            <div class="row p-5">
+              <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                <img
+                  class="img-fluid"
+                  src="./assets/img/banner_img_01.jpg"
+                  alt="Impresión 3D"
+                />
+              </div>
+              <div class="col-lg-6 mb-0 d-flex align-items-center">
+                <div class="text-align-left align-self-center">
+                  <h1 class="h1 text-success"><b>NacoArt3D</b></h1>
+                  <h3 class="h2">Impresión 3D a tu Alcance</h3>
+                  <p>
+                    Bienvenido a NacoArt3D, tu tienda de impresión 3D. Ofrecemos
+                    servicios de impresión 3D de alta calidad para tus proyectos
+                    personales y profesionales.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row p-5">
+              <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                <img
+                  class="img-fluid"
+                  src="./assets/img/banner_img_02.jpg"
+                  alt="Diseño Personalizado"
+                />
+              </div>
+              <div class="col-lg-6 mb-0 d-flex align-items-center">
+                <div class="text-align-left">
+                  <h1 class="h1">Diseño Personalizado</h1>
+                  <h3 class="h2">Haz tus Ideas Realidad</h3>
+                  <p>
+                    En NacoArt3D, te ayudamos a transformar tus ideas en objetos
+                    tangibles. Ofrecemos servicios de diseño e impresión 3D a
+                    medida.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row p-5">
+              <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                <img
+                  class="img-fluid"
+                  src="./assets/img/banner_img_03.jpg"
+                  alt="Proyectos Innovadores"
+                />
+              </div>
+              <div class="col-lg-6 mb-0 d-flex align-items-center">
+                <div class="text-align-left">
+                  <h1 class="h1">Proyectos Innovadores</h1>
+                  <h3 class="h2">Calidad y Precisión</h3>
+                  <p>
+                    Trabajamos con materiales de alta calidad y tecnología
+                    avanzada para garantizar resultados precisos y duraderos en
+                    cada proyecto.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        class="carousel-control-prev text-decoration-none w-auto ps-3"
+        href="#template-mo-zay-hero-carousel"
+        role="button"
+        data-bs-slide="prev"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </a>
+      <a
+        class="carousel-control-next text-decoration-none w-auto pe-3"
+        href="#template-mo-zay-hero-carousel"
+        role="button"
+        data-bs-slide="next"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </a>
+    </div>
+    <!-- Cierre del banner principal -->
+    <!-- Reserva tu unidad-->
+    <section class="container py-5">
+      <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+          <h1 class="h1">Compra ya tu figura</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <form
+          action="reservas.php"
+          method="POST"
+          class="form-container w-100 mx-auto"
+        >
+          <div class="row">
+            <div class="col-md-3">
+              <label for="nombre" class="form-label">Introduce tu nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                name="nombre"
+                placeholder="Nombre"
+                required
+              />
+            </div>
+            <div class="col-md-3">
+              <label for="cantidad" class="form-label"
+                >Seleccione la cantidad</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="cantidad"
+                name="cantidad"
+                placeholder="Cantidad"
+                required
+              />
+            </div>
+            <div class="col-md-3">
+              <label for="categoria" class="form-label"
+                >Seleccione la categoría</label
+              >
+              <select
+                name="categoria"
+                id="categoria"
+                class="form-select"
+                onchange="actualizarSubcategoria()"
+              >
+                <option value="">Seleccione...</option>
+                <option value="llaveros">Llaveros</option>
+                <option value="figuras">Figuras</option>
+                <option value="utilidades">Utilidades</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="subcategoria" class="form-label"
+                >Seleccione la subcategoría</label
+              >
+              <select
+                name="subcategoria"
+                id="subcategoria"
+                class="form-select"
+                disabled
+              >
+                <option value="">Seleccione...</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <button
+            type="submit"
+            style="
+              background-color: #198754;
+              border-color: 0;
+              color: white;
+              padding: 0.5rem 1rem;
+              border-radius: 0.25rem;
+            "
+            class="w-30 mb-2 mx-auto d-block"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Categorías del mes -->
+    <section class="container py-5">
+      <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+          <h1 class="h1">Categorías Destacadas</h1>
+          <p>
+            Descubre nuestras categorías de productos más populares y encuentra
+            la inspiración para tu próximo proyecto de impresión 3D.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4 p-5 mt-3">
+          <a href="#"
+            ><img
+              src="./assets/img/category_img_01.jpg"
+              class="rounded-circle img-fluid border"
+              alt="Figuras"
+          /></a>
+          <h5 class="text-center mt-3 mb-3">Figuras</h5>
+          <p class="text-center"><a class="btn btn-success">Ver Más</a></p>
+        </div>
+        <div class="col-12 col-md-4 p-5 mt-3">
+          <a href="#"
+            ><img
+              src="./assets/img/category_img_02.jpg"
+              class="rounded-circle img-fluid border"
+              alt="Piezas"
+          /></a>
+          <h2 class="h5 text-center mt-3 mb-3">Piezas Funcionales</h2>
+          <p class="text-center"><a class="btn btn-success">Ver Más</a></p>
+        </div>
+        <div class="col-12 col-md-4 p-5 mt-3">
+          <a href="#"
+            ><img
+              src="./assets/img/category_img_03.jpg"
+              class="rounded-circle img-fluid border"
+              alt="Accesorios"
+          /></a>
+          <h2 class="h5 text-center mt-3 mb-3">Accesorios</h2>
+          <p class="text-center"><a class="btn btn-success">Ver Más</a></p>
+        </div>
+      </div>
+    </section>
+    <!-- Cierre de categorías del mes -->
+
+    <!-- Productos destacados -->
+    <section class="bg-light">
+      <div class="container py-5">
+        <div class="row text-center py-3">
+          <div class="col-lg-6 m-auto">
+            <h1 class="h1">Productos Destacados</h1>
+            <p>
+              Echa un vistazo a nuestros productos más populares y encuentra la
+              pieza perfecta para tu próximo proyecto.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-4 mb-4">
+            <div class="card h-100">
+              <a href="shop-single.html">
+                <img
+                  src="./assets/img/feature_prod_01.jpg"
+                  class="card-img-top"
+                  alt="Producto 1"
+                />
+              </a>
+              <div class="card-body">
+                <ul class="list-unstyled d-flex justify-content-between">
+                  <li>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-muted fa fa-star"></i>
+                    <i class="text-muted fa fa-star"></i>
+                  </li>
+                  <li class="text-muted text-right">$240.00</li>
+                </ul>
+                <a
+                  href="shop-single.html"
+                  class="h2 text-decoration-none text-dark"
+                  >Figura de Acción</a
+                >
+                <p class="card-text">
+                  Impresionante figura de acción impresa en 3D con detalles
+                  precisos y materiales de alta calidad.
+                </p>
+                <p class="text-muted">Reseñas (24)</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4">
+            <div class="card h-100">
+              <a href="shop-single.html">
+                <img
+                  src="./assets/img/feature_prod_02.jpg"
+                  class="card-img-top"
+                  alt="Producto 2"
+                />
+              </a>
+              <div class="card-body">
+                <ul class="list-unstyled d-flex justify-content-between">
+                  <li>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-muted fa fa-star"></i>
+                    <i class="text-muted fa fa-star"></i>
+                  </li>
+                  <li class="text-muted text-right">$480.00</li>
+                </ul>
+                <a
+                  href="shop-single.html"
+                  class="h2 text-decoration-none text-dark"
+                  >Soporte para Teléfono</a
+                >
+                <p class="card-text">
+                  Elegante soporte para teléfono impreso en 3D, perfecto para tu
+                  escritorio o mesita de noche.
+                </p>
+                <p class="text-muted">Reseñas (48)</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4">
+            <div class="card h-100">
+              <a href="shop-single.html">
+                <img
+                  src="./assets/img/feature_prod_03.jpg"
+                  class="card-img-top"
+                  alt="Producto 3"
+                />
+              </a>
+              <div class="card-body">
+                <ul class="list-unstyled d-flex justify-content-between">
+                  <li>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                  </li>
+                  <li class="text-muted text-right">$360.00</li>
+                </ul>
+                <a
+                  href="shop-single.html"
+                  class="h2 text-decoration-none text-dark"
+                  >Llavero Personalizado</a
+                >
+                <p class="card-text">
+                  Llavero personalizado impreso en 3D con tu nombre o diseño
+                  favorito. ¡Un regalo único y original!
+                </p>
+                <p class="text-muted">Reseñas (74)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Cierre de productos destacados -->
+
+    <!-- Pie de página -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 pt-5">
+            <h2 class="h2 text-success border-bottom pb-3 border-light logo">
+              NacoArt3D
+            </h2>
+            <ul class="list-unstyled text-light footer-link-list">
+              <li>
+                <i class="fas fa-map-marker-alt fa-fw"></i>
+                Dirección de ejemplo
+              </li>
+              <li>
+                <i class="fa fa-envelope fa-fw"></i>
+                <a class="text-decoration-none" href="mailto:info@nacoart3d.com"
+                  >info@nacoart3d.com</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 pt-5">
+            <h2 class="h2 text-light border-bottom pb-3 border-light">
+              Productos
+            </h2>
+            <ul class="list-unstyled text-light footer-link-list">
+              <li>
+                <a class="text-decoration-none" href="#">Figuras de Acción</a>
+              </li>
+              <li>
+                <a class="text-decoration-none" href="#"
+                  >Piezas Personalizadas</a
+                >
+              </li>
+              <li>
+                <a class="text-decoration-none" href="#"
+                  >Accesorios para el Hogar</a
+                >
+              </li>
+              <li><a class="text-decoration-none" href="#">Llaveros</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 pt-5">
+            <h2 class="h2 text-light border-bottom pb-3 border-light">
+              Más Información
+            </h2>
+            <ul class="list-unstyled text-light footer-link-list">
+              <li><a class="text-decoration-none" href="#">Inicio</a></li>
+              <li>
+                <a class="text-decoration-none" href="#">Acerca de Nosotros</a>
+              </li>
+              <li><a class="text-decoration-none" href="#">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row text-light mb-4">
+          <div class="col-12 mb-3">
+            <div class="w-100 my-3 border-top border-light"></div>
+          </div>
+          <div class="col-auto me-auto">
+            <ul class="list-inline text-left footer-icons">
+              <li
+                class="list-inline-item border border-light rounded-circle text-center"
+              >
+                <a
+                  class="text-light text-decoration-none"
+                  target="_blank"
+                  href="https://www.instagram.com/nacoart3d/"
+                  ><i class="fab fa-instagram fa-lg fa-fw"></i
+                ></a>
+              </li>
+              <!-- Puedes añadir aquí enlaces a otras redes sociales si las tienes -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-100 bg-black py-3">
+        <div class="container">
+          <div class="row pt-2">
+            <div class="col-12">
+              <p class="text-left text-light">
+                Copyright &copy; 2024 NacoArt3D
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Cierre del pie de página -->
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- Fin de Scripts -->
+  </body>
+</html>
