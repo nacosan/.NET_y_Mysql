@@ -1,0 +1,14 @@
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\bin\Debug\net8.0\TallerMecanico.exe
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\bin\Debug\net8.0\TallerMecanico.deps.json
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\bin\Debug\net8.0\TallerMecanico.runtimeconfig.json
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\bin\Debug\net8.0\TallerMecanico.dll
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\bin\Debug\net8.0\TallerMecanico.pdb
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\obj\Debug\net8.0\TallerMecanico.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\obj\Debug\net8.0\TallerMecanico.AssemblyInfoInputs.cache
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\obj\Debug\net8.0\TallerMecanico.AssemblyInfo.cs
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\obj\Debug\net8.0\TallerMecanico.csproj.CoreCompileInputs.cache
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\obj\Debug\net8.0\TallerMecanico.dll
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\obj\Debug\net8.0\refint\TallerMecanico.dll
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\obj\Debug\net8.0\TallerMecanico.pdb
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\obj\Debug\net8.0\TallerMecanico.genruntimeconfig.cache
+C:\Users\CursosTardes\source\repos\TallerMecanico\TallerMecanico\obj\Debug\net8.0\ref\TallerMecanico.dll
